@@ -5,7 +5,7 @@ module.exports = ({
     createUsers: (req, res) => {
         if (req.body.isVerified) req.body.isVerified = JSON.parse(req.body.isVerified);
         if (req.body.phone) req.body.phone = JSON.parse(req.body.phone);
-        if (req.body.isVerified == true) {
+        if (req.body.password == req.body.cpassword){
             req.body.password = hashSync(req.body.password, 10)
             console.log(req.body)
             createUser(req, (err, data) => {
@@ -32,7 +32,7 @@ module.exports = ({
         } else {
             res.json({
                 success: 0,
-                msg: "otp verfication is false"
+                msg: "Password did't match"
             })
         }
     },
