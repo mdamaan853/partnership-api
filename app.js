@@ -24,7 +24,7 @@ app.get('/ping',(req,res)=>{
 res.send('server is on')
 });
 
-app.listen(PORT, () => {
-    console.log(`HTTPS Server running on port ${PORT}`);
+app.listen(3000, () => {
+    console.log(`HTTPS Server running on port ${3000}`);
 });
 
