@@ -44,7 +44,7 @@ const userschema = new mongoose.Schema({
         default: false
     },
     state: {
-        type: String,
+        type: String,       
     },
     city: {
         type: String

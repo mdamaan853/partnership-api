@@ -64,9 +64,7 @@ module.exports = ({
                         success: 1,
                         msg: "you are loggedin",
                         token: token,
-                        email: data.email,
-                        userId: data._id,
-                        phone: data.phone
+                        data:data
                     })
                 } else {
                     res.json({
