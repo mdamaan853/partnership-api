@@ -25,7 +25,8 @@ module.exports = ({
                         success: 1,
                         msg: "successfully regestred",
                         token: token,
-                        result: data
+                        result: data,
+                        userId: data._id,
                     })
                 }
             })
@@ -64,7 +65,8 @@ module.exports = ({
                         success: 1,
                         msg: "you are loggedin",
                         token: token,
-                        data:data
+                        userId: data._id,
+                        result: data
                     })
                 } else {
                     res.json({
