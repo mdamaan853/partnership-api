@@ -42,6 +42,7 @@ const projectSchema = new mongoose.Schema({
     },
     userId: {
         type:String,
+        ref:"user"
     },
     date: {
         type: Date

@@ -7,7 +7,7 @@ const multer=require("multer")
 const userRouter = require('./api/controller/user/user.router')
 const projectRouter = require('./api/controller/project/project.router')
 
-const PORT=process.env.PORT || 3000
+const PORT=process.env.PORT || 4000
 
 
 const upload=multer().none()
@@ -24,7 +24,7 @@ app.get('/ping',(req,res)=>{
 res.send('server is on')
 });
 
-app.listen(3000, () => {
-    console.log(`HTTPS Server running on port ${3000}`);
+app.listen(PORT, () => {
+    console.log(`HTTPS Server running on port ${PORT}`);
 });
 

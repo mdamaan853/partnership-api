@@ -1,9 +1,9 @@
-const { createUser, getAllUser, getUserById, loginUser, updateUser, deleteUser } = require('./user.service')
 const jwt = require('jsonwebtoken')
 const { hashSync, compareSync } = require('bcrypt')
+const { createUser, getAllUser, getUserById, loginUser, updateUser, deleteUser } = require('./user.service')
 module.exports = ({
     createUsers: (req, res) => {
-        if (req.body.isVerified) req.body.isVerified = JSON.parse(req.body.isVerified);
+        // if (req.body.isVerified) req.body.isVerified = JSON.parse(req.body.isVerified);
         if (req.body.phone) req.body.phone = JSON.parse(req.body.phone);
         if (req.body.password == req.body.cpassword){
             req.body.password = hashSync(req.body.password, 10)

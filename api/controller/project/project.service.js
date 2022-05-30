@@ -9,6 +9,7 @@ module.exports = ({
         Images:req.body.Images,
         license:req.body.license,
         pitchDeck:req.body.pitchDeck,
+        userId:req.body.userId,
         date:new Date(),
         }).save((err, data) => {
         if (err){
@@ -18,7 +19,7 @@ module.exports = ({
     })
 },
 getAllproject: (req, res) => {
-    projectModel.find().sort({_id:-1}).exec((err, data) => {
+    projectModel.find().populate("userId").sort({_id:-1}).exec((err, data) => {
         if (err){
             return res(err);
         }
@@ -26,7 +27,7 @@ getAllproject: (req, res) => {
     })
 },
 getProjectById: (req, res) => {
-    projectModel.find({_id:req.params.id}).exec((err, data) => {
+    projectModel.find({_id:req.params.id}).populate("userId").exec((err, data) => {
         if (err){
             return res(err);
         }
