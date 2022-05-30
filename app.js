@@ -7,7 +7,7 @@ const multer=require("multer")
 const userRouter = require('./api/controller/user/user.router')
 const projectRouter = require('./api/controller/project/project.router')
 
-const PORT=process.env.PORT || 4000
+const PORT=process.env.PORT || 3000
 
 
 const upload=multer().none()
