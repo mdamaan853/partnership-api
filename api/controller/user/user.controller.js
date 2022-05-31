@@ -114,11 +114,12 @@ module.exports = ({
         })
     },
     updateUsers: (req, res) => {
+        console.log(req.body)
         updateUser(req, (err, data) => {
             if (err) {
                 res.json({
                     success: 0,
-                    msg: "error while update" + err
+                    msg:err
                 })
             } else {
                 res.json({
