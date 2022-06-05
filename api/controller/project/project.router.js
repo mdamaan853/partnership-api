@@ -2,8 +2,7 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer')
 
-const {createProjects,getAllprojects,getProjectsById,getProjectByUsersId,updateProjects,deleteProjects} = require('./project.controller')
-
+const {createProjects,getAllprojects,getProjectsById,getProjectByUsersId,updateProjects,deleteProjects,getUsersIntrestedInProject} = require('./project.controller')
 
 const storage = multer.diskStorage({
     destination: './upload/project',
@@ -26,6 +25,7 @@ router.post('/upload', upload.fields([
 router.get('/',getAllprojects);
 router.get('/:id',getProjectsById);
 router.get('/user/:id',getProjectByUsersId);
+router.get('/intrested/:id',getUsersIntrestedInProject);
 
 router.patch('/:id',upload.fields([
     {name:"projectDoc",maxCount:12},

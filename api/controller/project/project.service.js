@@ -34,6 +34,14 @@ getProjectById: (req, res) => {
         return res(null,data)
     })
 },
+getUserIntrestedInProject: (req, res) => {
+    projectModel.find({intrestedUser:{ $contains :req.params.id}}).populate("userId").exec((err, data) => {
+        if (err){
+            return res(err);
+        }
+        return res(null,data)
+    })
+},
 getProjectByUserId: (req, res) => {
     projectModel.find({userId:req.params.id}).populate("userId").exec((err, data) => {
         if (err){

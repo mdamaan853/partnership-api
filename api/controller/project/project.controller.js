@@ -99,6 +99,28 @@ module.exports = ({
             }
         })
     },
+    getUsersIntrestedInProject: (req, res) => {
+        getUserIntrestedInProject(req, (err, data) => {
+            if (err) {
+                res.json({
+                    success: 0,
+                    msg: err
+                })
+            }
+            if (!data) {
+                res.json({
+                    success: 0,
+                    msg: "no records found"
+                })
+            } else {
+                res.json({
+                    success: 1,
+                    msg:"found",
+                    result: data
+                })
+            }
+        })
+    },
     updateProjects: (req, res) => {
         if (req.body.intrestedUser) req.body.intrestedUser = JSON.parse(req.body.intrestedUser);
         if(req.files.projectDoc){
