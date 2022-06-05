@@ -43,7 +43,7 @@ getUserIntrestedInProject: (req, res) => {
     })
 },
 getProjectByUserId: (req, res) => {
-    projectModel.find({userId:req.params.id}).populate("userId","intrestedUser").exec((err, data) => {
+    projectModel.find({userId:req.params.id}).populate("userId").populate("intrestedUser").exec((err, data) => {
         if (err){
             return res(err);
         }
