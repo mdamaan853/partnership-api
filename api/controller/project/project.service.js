@@ -35,7 +35,7 @@ getProjectById: (req, res) => {
     })
 },
 getUserIntrestedInProject: (req, res) => {
-    projectModel.find({intrestedUser:req.params.id}).populate("userId","intrestedUser").exec((err, data) => {
+    projectModel.find({intrestedUser:req.params.id}).populate("userId").exec((err, data) => {
         if (err){
             return res(err);
         }
@@ -43,7 +43,7 @@ getUserIntrestedInProject: (req, res) => {
     })
 },
 getProjectByUserId: (req, res) => {
-    projectModel.find({userId:req.params.id}).populate("userId").exec((err, data) => {
+    projectModel.find({userId:req.params.id}).populate("userId","intrestedUser").exec((err, data) => {
         if (err){
             return res(err);
         }
