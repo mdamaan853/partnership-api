@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
     }
 })
 
-const upload = multer({
+const upload = multer({ 
     storage: storage
 })
 
@@ -24,9 +24,7 @@ router.post('/upload', upload.fields([
 ]),createProjects);
 
 router.get('/',getAllprojects);
-
 router.get('/:id',getProjectsById);
-
 router.get('/user/:id',getProjectByUsersId);
 
 router.patch('/:id',upload.fields([

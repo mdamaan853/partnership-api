@@ -100,6 +100,7 @@ module.exports = ({
         })
     },
     updateProjects: (req, res) => {
+        if (req.body.intrestedUser) req.body.intrestedUser = JSON.parse(req.body.intrestedUser);
         if(req.files.projectDoc){
             req.body.projectDoc=req.files.projectDoc.map(element => {
                 return element.path
