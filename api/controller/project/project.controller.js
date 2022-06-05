@@ -1,4 +1,4 @@
-const {createProject,getProjectById,getAllproject,updateProject,deleteProject} = require('./project.service')
+const {createProject,getProjectById,getProjectByUserId,getAllproject,updateProject,deleteProject} = require('./project.service')
 module.exports = ({
     createProjects: (req, res) => {
         console.log(req.files.projectDoc)
@@ -38,8 +38,7 @@ module.exports = ({
                 }
             })
     },
-
-    
+   
     getAllprojects: (req, res) => {
         getAllproject(req, (err, data) => {
             if (err) {
@@ -58,6 +57,28 @@ module.exports = ({
     },
     getProjectsById: (req, res) => {
         getProjectById(req, (err, data) => {
+            if (err) {
+                res.json({
+                    success: 0,
+                    msg: err
+                })
+            }
+            if (!data) {
+                res.json({
+                    success: 0,
+                    msg: "no records found"
+                })
+            } else {
+                res.json({
+                    success: 1,
+                    msg:"found",
+                    result: data
+                })
+            }
+        })
+    },
+    getProjectByUsersId: (req, res) => {
+        getProjectByUserId(req, (err, data) => {
             if (err) {
                 res.json({
                     success: 0,

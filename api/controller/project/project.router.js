@@ -27,6 +27,8 @@ router.get('/',getAllprojects);
 
 router.get('/:id',getProjectsById);
 
+router.get('/user/:id',getProjectsById);
+
 router.patch('/:id',upload.fields([
     {name:"projectDoc",maxCount:12},
     {name:"Images",maxCount:12},
