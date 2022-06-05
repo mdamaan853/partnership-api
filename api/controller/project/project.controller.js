@@ -1,4 +1,4 @@
-const {createProject,getProjectById,getProjectByUserId,getAllproject,updateProject,deleteProject} = require('./project.service')
+const {createProject,getProjectById,getProjectByUserId,getAllproject,updateProject,deleteProject,getUserIntrestedInProject} = require('./project.service')
 module.exports = ({
     createProjects: (req, res) => {
         console.log(req.files.projectDoc)
