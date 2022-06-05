@@ -19,7 +19,8 @@ const projectSchema = new mongoose.Schema({
         required: [true, 'Name is required']
     },
     intrestedUser:{
-        type:Array
+        type:Array,
+        ref:"user"
     },
     location:{
         type:String
