@@ -4,7 +4,18 @@ const multer = require('multer')
 
 const { createUsers,getAllUsers,getUsersById,loginUsers, updateUsers, deleteUsers} = require('./user.controller')
 const {checkMobile} =require('../../middleware/users/uniquePhone')
-const upload = multer()
+
+
+const storage = multer.diskStorage({
+    destination: './upload/user',
+    filename: (req, file, cb) => {
+        return cb(null, file.fieldname + Date.now() + file.originalname)
+    }
+})
+
+const upload = multer({ 
+    storage: storage
+})
 
 router.post('/register', upload.none(),checkMobile,createUsers);
     
@@ -14,7 +25,7 @@ router.get('/',getAllUsers);
 
 router.get('/:id',getUsersById);
 
-router.patch('/:id',upload.none(),updateUsers);
+router.patch('/:id',upload.single('profileImg'),updateUsers);
 
 router.delete('/:id',deleteUsers);
 

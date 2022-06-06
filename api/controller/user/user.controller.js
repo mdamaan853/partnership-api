@@ -114,6 +114,10 @@ module.exports = ({
         })
     },
     updateUsers: (req, res) => {
+        console.log(req.file)
+        if(req.file){
+            req.body.profileImg=req.file.path
+        }
         console.log(req.body)
         updateUser(req, (err, data) => {
             if (err) {
