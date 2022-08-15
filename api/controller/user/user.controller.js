@@ -11,7 +11,7 @@ module.exports = ({
             createUser(req, (err, data) => {
                 if (err) {
                     res.json({
-                        success: 0,
+                        success: 0, 
                         msg:err
                     })
                 } else {
@@ -91,7 +91,7 @@ module.exports = ({
                 })
             }
         })
-    },
+    },  
     getUsersById: (req, res) => {
         getUserById(req, (err, data) => {
             if (err) {
