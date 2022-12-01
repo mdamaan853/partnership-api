@@ -39,7 +39,9 @@ module.exports = ({
     },
 
     loginUsers: (req, res) => {
+        console.log(req.body)
         if (req.body.phone) req.body.phone = JSON.parse(req.body.phone);
+        console.log(req.body.phone)
         loginUser(req, (err, data) => {
             if (err) {
                 res.json({
