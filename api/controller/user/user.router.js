@@ -5,7 +5,6 @@ const multer = require('multer')
 const { createUsers,getAllUsers,getUsersById,loginUsers, updateUsers, deleteUsers} = require('./user.controller')
 const {checkMobile} =require('../../middleware/users/uniquePhone')
 
-
 const storage = multer.diskStorage({
     destination: './upload/user',
     filename: (req, file, cb) => {

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build-css && react-scripts build"
   },
   "author": "Amaan",
   "license": "ISC",
@@ -20,6 +20,6 @@
     "socket.io": "^4.5.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.22"
   }
 }

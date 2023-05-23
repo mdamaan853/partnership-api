@@ -3,11 +3,12 @@ const { hashSync, compareSync } = require('bcrypt')
 const { createUser, getAllUser, getUserById, loginUser, updateUser, deleteUser } = require('./user.service')
 module.exports = ({
     createUsers: (req, res) => {
+        console.log(req.body)
         // if (req.body.isVerified) req.body.isVerified = JSON.parse(req.body.isVerified);
-        if (req.body.phone) req.body.phone = JSON.parse(req.body.phone);
+        // if (req.body.phone) req.body.phone = JSON.parse(req.body.phone);
         if (req.body.password == req.body.cpassword){
             req.body.password = hashSync(req.body.password, 10)
-            console.log(req.body)
+        
             createUser(req, (err, data) => {
                 if (err) {
                     res.json({
@@ -50,7 +51,7 @@ module.exports = ({
                 })
             }
             if (!data) {
-                res.json({
+                res.json({  
                     success: 0,
                     msg: "you have not regestred yet"
                 })

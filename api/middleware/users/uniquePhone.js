@@ -10,7 +10,7 @@ module.exports = ({
                     err: err
                 })
             }
-            if (data.length > 0) {
+            if (data?.length > 0) {
                 return res.json({
                     success: 0,
                     msg: "Mobile number already registred"
