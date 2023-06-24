@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer')
 
-const { createUsers,getAllUsers,getUsersById,loginUsers, updateUsers, deleteUsers} = require('./user.controller')
+const { createUsers,getAllUsers,getUsersById,loginUsers, updateUsers, deleteUsers,forgotPasswords} = require('./user.controller')
 const {checkMobile} =require('../../middleware/users/uniquePhone')
 
 const storage = multer.diskStorage({
@@ -24,6 +24,8 @@ router.get('/',getAllUsers);
 router.get('/:id',getUsersById);
 
 router.patch('/:id',upload.single('profileImg'),updateUsers);
+
+router.put('/forgot',upload.none(),forgotPasswords);
 
 router.delete('/:id',deleteUsers);
 

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { hashSync, compareSync } = require('bcrypt')
-const { createUser, getAllUser, getUserById, loginUser, updateUser, deleteUser } = require('./user.service')
+const { createUser, getAllUser, getUserById, loginUser, updateUser, deleteUser,forgotPassword } = require('./user.service')
 module.exports = ({
     createUsers: (req, res) => {
         console.log(req.body)
@@ -123,6 +123,28 @@ module.exports = ({
         }
         console.log(req.body)
         updateUser(req, (err, data) => {
+            if (err) {
+                res.json({
+                    success: 0,
+                    msg:err
+                })
+            } else {
+                res.json({
+                    success: 1,
+                    result: data
+                })
+            }
+        })
+    },
+    forgotPasswords: (req, res) => {
+    if(req.body.password != req.body.cpassword){
+        return res.json({
+            message:"password did not match",
+            status:0,
+        })
+    }
+    req.body.password = hashSync(req.body.password, 10)
+        forgotPassword(req, (err, data) => {
             if (err) {
                 res.json({
                     success: 0,
